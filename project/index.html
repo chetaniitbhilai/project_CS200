@@ -1,83 +1,121 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Age calculator </title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="calculator">
-                <h1>BB<br><span>AGE calculator</span><br></h1>
-                <div class="input-box">
-                    <input type="date" id="date">
-                    <button onclick="calculateage()">Calculate</button>
-
-                </div>
-                <p id="result" ></p>
-                <br><br>
-                <p id="heart"></p>
-                <br><br>
-                <p id="breadth"></p>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/704ff50790.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <h1>BB<br><span>AGE calculator<br></h1>
+            <div class="input-box">
+                <input type="date" id="date">
+                <button onclick="calculateAge()">Calculate</button>
             </div>
+            <br><br>
+            <p id="result"></p>
+            <br><br>
+            <p id="breathe"></p>
+            <br><br>
+            <p id="heart"></p>
         </div>
-        <script>
-            let userInput = document.getElementById("date");
-            userInput.max=new Date().toISOString().split("T")[0];
-            let result=document.getElementById("result");
-            let heart=document.getElementById("heart");
-            let breadth=document.getElementById("breadth");
+    </div>  
+    <div class="main_box">
+        <input type="checkbox" id="share_button">
+        <label for="share_button">
+            <span class="sharebtn">
+                <i class="far fa-share-square"></i>
+            </span>
+        </label>
+        <div class="sm_list">
+            <a href="#" class="facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="linkedin">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="discord">
+                <i class="fab fa-discord"></i>
+            </a>
+            <a href="#" class="whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" class="slack">
+                <i class="fab fa-slack"></i>
+            </a>
+        </div>
+    </div>
+    <script>
+        let userInput = document.getElementById("date");
+        userInput.max = new Date().toISOString().split("T")[0];
+        let result = document.getElementById("result");
+        let breathe = document.getElementById("breathe");
+        let heart=document.getElementById("heart");
+
+        function calculateAge() {
+            let birthDate = new Date(userInput.value);
+            let d1 = birthDate.getDate();
+            let m1 = birthDate.getMonth() + 1; // January -> 0
+            let y1 = birthDate.getFullYear();
+
+            let today = new Date();
+            let d2 = today.getDate();
+            let m2 = today.getMonth() + 1;
+            let y2 = today.getFullYear();
+            let hrs = today.getHours();
+            let min = today.getMinutes();
+            let sec = today.getSeconds();
+
+            let d3, m3, y3;
+            y3 = y2 - y1;
+            if (m2 >= m1) {
+                m3 = m2 - m1;
+            } else {
+                y3--;
+                m3 = 12 + m2 - m1;
+            }
+            if (d2 >= d1) {
+                d3 = d2 - d1;
+            } else {
+                m3--;
+                d3 = getDaysInMonth(y1, m1) + d2 - d1;
+            }
+            if (m3 < 0) {
+                m3 = 11;
+                y3--;
+            }
             
+            let br1 = Math.floor(Math.abs(birthDate-today)/1000 * 0.3);
+            breathe.innerHTML=`You taken approximately <p class="try">${br1}</p> breathes`; 
+            let hb=Math.ceil(((365*y3*30*24*60*60)+(24*60*30*(m3)*60)+(24*60*60*d3)+(hrs*60*60)+(60*min)+sec)*1.2);
+            
+            result.innerHTML = `You are <p class="try">${y3}</p> years,<p class="try">${m3}</p> months, <p class="try">${d3}</p> days, <p class="try">${hrs}</p> hours,<p class="try"> ${min}</p> minutes, <p class="try">${sec}</p> seconds old`;
+	        heart.innerHTML=`Your heart has beaten <p class="try">${hb}</p> times`;   
+            setInterval(calculateAge,1000);     
+        }
 
-            function calculateage(){
+        function getDaysInMonth(year, month) {
+            return new Date(year, month, 0).getDate();
+        }
 
-                let birthDate=new Date(userInput.value); 
+        const sharebtn = document.querySelector('.sharebtn');
+        let bool = 0;
 
-                let d1=birthDate.getDate();
-                let m1=birthDate.getMonth()+1;//january->0
-                let y1=birthDate.getFullYear();
+        sharebtn.addEventListener('click', () => {
+            bool = !bool;
 
-                let today=new Date();
-
-                let d2=today.getDate();
-                let m2=today.getMonth()+1;
-                let y2=today.getFullYear();
-                let hrs=today.getHours();
-                let min=today.getMinutes();
-                let sec=today.getSeconds();
-
-                let d3,m3,y3;
-                y3=y2 - y1;
-                if(m2>=m1){
-                    m3=m2-m1;
-                }
-                else{
-                    y3--;
-                    m3=12+m2-m1;
-                }
-                if(d2>=d1){
-                    d3=d2-d1;
-                }
-                else{
-                    m3--;
-                    d3=getDaysinnmonth(y1,m1)+d2-d1;
-                }
-                if(m3<0){
-                    m3=11;
-                    y3--;
-                }
-                let hb=Math.ceil(((365*y3*30*24*60*60)+(24*60*30*(m3)*60)+(24*60*60*d3)+(hrs*60*60)+(60*min)+sec)*1.2);
-                // let br=Math.ceil(((365*y3*30*24*60*60)+(24*60*30*(m3)*60)+(24*60*60*d3)+(hrs*60*60)+(60*min)+sec)*0.3);
-                result.innerHTML=`You are <span>${y3}</span> years,<span>${m3}</span> months,<span>${d3}</span> days,<span>${hrs}</span> hours,<span>${min}</span> minutes,<span>${sec}</span> seconds old `;
-                heart.innerHTML=`Your heart has beaten <span>${hb}</span> times`;
-                // breadth.innerHTML=`You have taken <span>${br}</span> breadths`;
-                setInterval(calculateage, 1000);
+            if (bool === 0) {
+                sharebtn.innerHTML = '<i class="far fa-share-square"></i>';
+            } else {
+                sharebtn.innerHTML = '<i class="fas fa-times"></i>';
             }
-
-            function getDaysinnmonth(year,month){
-                return new Date(year,month,0).getDate();
-            }
-        </script>
-    </body>
-
+        });
+    </script>
+</body>
 </html>
+
