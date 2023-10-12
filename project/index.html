@@ -49,6 +49,7 @@
         let userInput = document.getElementById("date");
         userInput.max = new Date().toISOString().split("T")[0];
         let result = document.getElementById("result");
+        let heart=document.getElementById("heart");
 
         function calculateAge() {
             let birthDate = new Date(userInput.value);
@@ -82,7 +83,9 @@
                 m3 = 11;
                 y3--;
             }
+            let hb=Math.ceil(((365*y3*30*24*60*60)+(24*60*30*(m3)*60)+(24*60*60*d3)+(hrs*60*60)+(60*min)+sec)*1.2);
             result.innerHTML = `You are <span>${y3}</span> years, <span>${m3}</span> months, <span>${d3}</span> days, <span>${hrs}</span> hours, <span>${min}</span> minutes, <span>${sec}</span> seconds old`;
+	    heart.innerHTML=`Your heart has beaten <span>${hb}</span> times`;        
         }
 
         function getDaysInMonth(year, month) {
