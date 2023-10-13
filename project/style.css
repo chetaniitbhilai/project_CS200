@@ -16,31 +16,24 @@
 .calculator{
     width: 100%;
     max-width: 600px;
-    margin-left: 5%;
+    margin-left: 10%;
     margin-top: 10%;
 }
 
 .calculator h1{
     font-size: 60px;
-	margin-left: 5%;
-    margin-top: 3%;
 }
 
 .calculator h1 span{
     color: #ffff76;
-	margin-left: -15.5%;
-	margin-top: 1%;
 }
 
 .input-box{
     margin: 40px 0;
-	position: relative;
     padding: 35px;
     border-radius: 10px;
     background: rgba(255,255,255,0.3);
     display: flex;
-	margin-left: 6%;
-    margin-top: 35%;
     align-items: center;
 }
 
@@ -80,15 +73,18 @@
     cursor: pointer;
 }
 
-#result, #breathe,#heart{
-    font-size: 30px;
-	margin-left: 6%;
+#result{
+    font-size: 20px;
 
 }
-.try{
-	color: #000;
-	/* position:relative; */
-	display: inline;
+
+#result span{
+    color:#ffff76;
+}
+{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body{
@@ -229,6 +225,8 @@ span:visited{
     left: 50%;
     transform: translateX(-50%);
 }
+
+
 
 
 
