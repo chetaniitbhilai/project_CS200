@@ -104,18 +104,19 @@ span,a{
 	border-radius: 50%;
 }
 
-span{
-	width: 2em;
-	height: 4em;
-	top: 30%;
-	left: 30%;
+.sharebtn{
+	width: 5rem;
+	height: 5rem;
+	top: 1.5rem;
+	left: 3rem;
 	transform: translate(-50%,-50%);
 	
 	color: #333;
 	font-size: 1em;
 	z-index: 1;
 	cursor: pointer;
-	/* border-radius: 30%; */
+	border-radius: 100%;
+	background-color: white;
 }
 
 .sm_list{
