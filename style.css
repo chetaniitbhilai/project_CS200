@@ -73,11 +73,11 @@
     cursor: pointer;
 }
 
-#result{
+#result, #heart{
     font-size: 20px;
 
 }
 
-#result span{
+span{
     color:#ffff76;
 }
