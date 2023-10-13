@@ -74,8 +74,8 @@
 }
 
 #result, #heart{
-    font-size: 20px;
-
+    font-size: 2rem;
+    color: #fff;
 }
 
 span{
