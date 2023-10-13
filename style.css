@@ -51,13 +51,13 @@
 
 .input-box button{
     background: #ffff76;
-    border: 0;
-    outline: 0;
-    padding:15px 30px;
-    border-radius: 5rem;
-    font-weight: 500;
-    color: #333;
-    cursor: pointer;
+  border: 0;
+  outline: 0;
+  padding: 20px 30px;
+  border-radius: 6rem;
+  font-weight: 600;
+  color: #323;
+  cursor: pointer;
 }
 
 .input-box input::-webkit-calendar-picker-indicator{
