@@ -132,8 +132,8 @@ sharebtn.addEventListener('click', () => {
                 }
                 //this is heartbeat according to number of days
                 console.log(today);
-                let br=Math.ceil(((365*y3*30*24*60*60)+(24*60*30*(m3)*60)+(24*60*60*d3)+(hrs*60*60)+(60*min)+sec)*0.3);
-                let hb=Math.ceil(((365*y3*30*24*60*60)+(24*60*30*(m3)*60)+(24*60*60*d3)+(hrs*60*60)+(60*min)+sec)*1.2);
+                let br=Math.floor(Math.abs(birthDate-today)/1000*0.3);
+                let hb=Math.floor(Math.abs(birthDate-today)/1000*1.2);
                 heart.innerHTML=`Your heart has beaten ${hb} times`;
                 result.innerHTML=`You are ${y3} years, ${m3} months, ${d3} days, ${hrs} hours, ${min} minutes, ${sec} seconds old `;
                 breath.innerHTML=`You have taken ${br} breaths`;
