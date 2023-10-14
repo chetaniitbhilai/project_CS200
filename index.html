@@ -134,9 +134,9 @@ sharebtn.addEventListener('click', () => {
                 console.log(today);
                 let br=Math.floor(Math.abs(birthDate-today)/1000*0.3);
                 let hb=Math.floor(Math.abs(birthDate-today)/1000*1.2);
-                heart.innerHTML=`Your heart has beaten ${hb} times`;
-                result.innerHTML=`You are ${y3} years, ${m3} months, ${d3} days, ${hrs} hours, ${min} minutes, ${sec} seconds young`;
-                breath.innerHTML=`You have taken ${br} breaths`;
+                heart.innerHTML=`Your heart has beaten <p class="try">${hb}</p> times`;
+                result.innerHTML=`You are <p class="try">${y3}</p> years,<p class="try">${m3}</p> months, <p class="try">${d3}</p> days, <p class="try">${hrs}</p> hours,<p class="try"> ${min}</p> minutes, <p class="try">${sec}</p> seconds old`;
+                breath.innerHTML=`You have taken <p class="try">${br}</p> breaths`;
                 setInterval(calculateage, 1000);
             }
 
