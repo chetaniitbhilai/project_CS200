@@ -104,6 +104,12 @@ span,a{
 	border-radius: 50%;
 }
 
+.try{
+	color: #000;
+	/* position:relative; */
+	display: inline;
+}
+
 .sharebtn{
 	width: 5rem;
 	height: 5rem;
