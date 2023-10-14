@@ -218,6 +218,11 @@ span:visited{
     transform: translateX(-50%);
 }
 
+.cn{
+	color : yellow;
+	display: inline;
+}
+
 
 
 
